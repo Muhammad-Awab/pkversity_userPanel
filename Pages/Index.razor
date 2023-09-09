@@ -1,0 +1,406 @@
+@page "/"
+
+@inject IPreloadingService PreloadingService
+@inject NavigationManager nm
+
+<PageTitle>Pkversity</PageTitle>
+
+<style>
+    /*.navbar{
+                    display:none;
+                }*/
+
+    body {
+        background: #fff;
+        font-family: "Open Sans", sans-serif;
+        color: #444444;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 110%;
+    }
+
+    a {
+        color: #106eea;
+        text-decoration: none;
+    }
+
+        a:hover {
+            color: #3b8af2;
+            text-decoration: none;
+        }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Roboto", sans-serif;
+    }
+
+    #hero {
+        width: 100%;
+        height: 75vh;
+        background: url("Images/hero.jpg") top left;
+        background-size: cover;
+        background-attachment: fixed;
+        position: relative;
+    }
+
+        #hero:before {
+            content: "";
+            background: rgba(255, 255, 255, 0.6);
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #hero .container {
+            position: relative;
+        }
+
+        #hero h1 {
+            margin: 0;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 56px;
+            color: #222222;
+            font-family: "Poppins", sans-serif;
+        }
+
+            #hero h1 span {
+                color: #106eea;
+            }
+
+        #hero h2 {
+            color: #555555;
+            margin: 5px 0 30px 0;
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+    /*--------------------------------------------------------------
+                # About
+                --------------------------------------------------------------*/
+    .about .content h3 {
+        font-weight: 600;
+        font-size: 26px;
+    }
+
+    .about .content ul {
+        list-style: none;
+        padding: 0;
+    }
+
+        .about .content ul li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 35px;
+        }
+
+            .about .content ul li:first-child {
+                margin-top: 35px;
+            }
+
+        .about .content ul i {
+            background: #fff;
+            box-shadow: 0px 6px 15px rgba(16, 110, 234, 0.12);
+            font-size: 24px;
+            padding: 20px;
+            margin-right: 15px;
+            color: #106eea;
+            border-radius: 50px;
+        }
+
+        .about .content ul h5 {
+            font-size: 18px;
+            color: #555555;
+        }
+
+        .about .content ul p {
+            font-size: 15px;
+        }
+
+    .about .content p:last-child {
+        margin-bottom: 0;
+    }
+
+    .icon {
+        height: 22px;
+    }
+
+    /*--------------------------------------------------------------
+            # Sections General
+            --------------------------------------------------------------*/
+    section {
+        padding: 60px 0;
+        overflow: hidden;
+    }
+
+    .section-about-bg {
+        background-color: #f6f9fe;
+    }
+
+    .section-title {
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+        .section-title h2 {
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 700;
+            padding: 8px 20px;
+            margin: 0;
+            background: #e7f1fd;
+            color: #106eea;
+            display: inline-block;
+            text-transform: uppercase;
+            border-radius: 50px;
+        }
+
+        .section-title h3 {
+            margin: 15px 0 0 0;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+            .section-title h3 span {
+                color: #106eea;
+            }
+
+        .section-title p {
+            margin: 15px auto 0 auto;
+            font-weight: 600;
+        }
+
+
+    /*--------------------------------------------------------------
+                # Frequently Asked Questions
+                --------------------------------------------------------------*/
+    .faq {
+        padding: 60px 0;
+    }
+
+        .faq .faq-list {
+            padding: 0;
+            list-style: none;
+        }
+
+            .faq .faq-list li {
+                border-bottom: 1px solid #d4e5fc;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+            }
+
+            .faq .faq-list .question {
+                display: block;
+                position: relative;
+                font-family: #106eea;
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 400;
+                padding-left: 25px;
+                cursor: pointer;
+                color: #0d58ba;
+                transition: 0.3s;
+            }
+
+            .faq .faq-list i {
+                font-size: 16px;
+                position: absolute;
+                left: 0;
+                top: -2px;
+            }
+
+            .faq .faq-list p {
+                margin-bottom: 0;
+                padding: 10px 0 0 25px;
+            }
+
+            .faq .faq-list .icon-show {
+                display: none;
+            }
+
+            .faq .faq-list .collapsed {
+                color: black;
+            }
+
+                .faq .faq-list .collapsed:hover {
+                    color: #106eea;
+                }
+
+                .faq .faq-list .collapsed .icon-show {
+                    display: inline-block;
+                    transition: 0.6s;
+                }
+
+                .faq .faq-list .collapsed .icon-close {
+                    display: none;
+                    transition: 0.6s;
+                }
+
+</style>
+<Loader isLoading="@isLoading" />
+    
+<section id="hero" class="d-flex align-items-center">
+
+
+
+    <div class="container header-section">
+        <img src="Images/pkversity_logo_new.png" class="img-hero" height="80">
+        <h1 class="main-heading">Welcome to <span>Dream Universities</span></h1>
+
+        <h2>
+            So,hi why wait? Start your search for your dream university today and take the first step towards your academic and professional success.
+        </h2>
+        <button class="btn btn-primary btn-lg" @onclick="StartLoading">Get Started</button>
+       
+
+    </div>
+</section><!-- End Hero -->
+<!-- ======= Clients Section ======= -->
+<section id="clients" class="clients section-bg">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="Images/air.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="Images/Comsat.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="Images/fast.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="Images/islamic.jpeg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="Images/pieas.jpeg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <img src="Images/nust.png" class="img-fluid" alt="">
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- ======= About Section ======= -->
+<section id="about" class="about section-about-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>About</h2>
+
+            <h3>Find Out More <span>About Us</span></h3>
+            <p>search for your dream university today and take the first step towards your academic and professional success</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                <img src="Images/about1.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <h3>Find Your Perfect University Match - Where Academic Success Begins!</h3>
+                <p class="fst-italic">
+                    Find Your Perfect University: Matching Your Marks and Degree with the Best Institutions
+                </p>
+                <ul>
+                    <li>
+                        <img src="https://img.icons8.com/ios-filled/50/null/1-circle.png" class="icon" />
+
+                        <div>
+                            <h5>Your Academic Journey Starts Here:</h5>
+                            <p>At our website, we are dedicated to helping you find the right university to pursue your academic aspirations. Discover a wealth of resources and advice to guide you on your journey.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://img.icons8.com/ios-filled/50/null/2-circle.png" class="icon" />
+                        <div>
+                            <h5>Find Your Perfect Match:</h5>
+                            <p>With so many universities to choose from, it can be challenging to find the right fit. Our website takes the guesswork out of the equation, helping you narrow down your options and find your ideal match.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End About Section -->
+<!-- ======= Frequently Asked Questions Section ======= -->
+<section id="faq" class="faq section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>F.A.Q</h2>
+            <h3>Frequently Asked <span>Questions</span></h3>
+            <p>Have Questions? We Have Answers! Check Out Our FAQs Section to Learn More.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <ul class="faq-list">
+
+                    <li>
+                        <div data-bs-toggle="collapse" class="collapsed question" href="#faq1"> How does your website work?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                        <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+                            <p>
+                                Our website is designed to help you find the best university that matches your academic achievements and career goals. Simply enter your marks and degree program of interest, and our search engine will generate a list of universities that match your criteria. You can then filter by location, tuition fees, admission requirements, and other factors to narrow down your options.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">What degree programs can I search for on your website? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                        <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+                            <p>
+                                Our website has a comprehensive database of universities and degree programs, including bachelor's, master's, and doctoral degrees in a wide range of subjects. You can filter by degree level, subject area, and other factors to find the right fit for your academic goals.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Is your website free to use?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                        <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+                            <p>
+                                Yes, our website is completely free to use. We are committed to providing access to information and resources that can help students achieve their academic aspirations.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">How can I contact your team if I have further questions? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                        <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+                            <p>
+                                You can reach our team through the contact form on our website, or by sending an email to our support team. We are always happy to hear from students and offer assistance in any way we can.
+                            </p>
+                        </div>
+                    </li>
+
+
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    </section>
+@code {
+
+      bool isLoading = false;
+    async Task StartLoading()
+    {
+        isLoading = true;
+
+        //Simulate a delay before moving to the next page
+
+        await PreloadingService.PreloadDataAsync();
+        await Task.Delay(2000);
+        isLoading = false;
+        // Redirect to the next page
+        nm.NavigateTo("/search");
+    }
+}

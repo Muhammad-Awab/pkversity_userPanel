@@ -1,0 +1,191 @@
+﻿@using User.Authentication
+@inherits LayoutComponentBase
+@inject AuthenticationStateProvider authStateProvider
+@inject NavigationManager nm
+
+
+<PageTitle>FrontPage</PageTitle>
+<style>
+    .img-height {
+        height: 1rem;
+        margin-bottom: 0rem;
+    }
+
+    .nav-color {
+        background-color: white;
+        color: black;
+    }
+
+   
+
+        
+             
+
+                ul li a {
+                    display: block;
+                    padding: 15px;
+                    text-decoration: none;
+            
+            letter-spacing: 1px;
+                    text-transform: uppercase;
+                    margin: 0 10px;
+                }
+
+                     ul li a,
+                    ul li a:after,
+                     ul li a:before {
+                        transition: all .5s;
+                    }
+
+                         ul li a:hover {
+                    color: blue !important;
+                        }
+
+         ul li a,
+        ul li a {
+            position: relative;
+            
+        }
+
+            ul li a:after
+            { 
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 0%;
+                content: '.';
+                color: transparent;
+                background: #aaa;
+                height: 1px;
+            }
+
+             ul li a:hover:after {
+                width: 100%;
+            }
+
+         ul li a {
+            transition: all 2s;
+        }
+
+             ul li a:after {
+                text-align: left;
+                content: '.';
+                margin: 0;
+                opacity: 0;
+            }
+
+             ul li a:hover {
+                color: #fff;
+                z-index: 1;
+            }
+
+                 ul li a:hover:after {
+                    z-index: -10;
+                    animation: fill 1s forwards;
+                    -webkit-animation: fill 1s forwards;
+                    -moz-animation: fill 1s forwards;
+                    opacity: 1;
+                }
+    .btn-green {
+        background-color: #40DE21;
+    }
+
+    .footer-anchor {
+        text-decoration: none
+    }
+</style>
+
+<main>
+    <nav class="navbar navbar-expand-sm sticky-top nav-color shadow-sm">
+        <div class="container-fluid position-relative" style="background-color:white;">
+            <a class="navbar-brand" href="/" b-23ai3ihtzc="">
+                <img src="Images/pkversity_logo_new.png" height="40">
+
+            </a>
+
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                           @* <li class="nav-item mt-2">
+                                <a class="nav-link text-black" aria-current="page" href="/">Home</a>
+                            </li>*@
+                    <AuthorizeView Roles="User">
+                        <Authorized>
+                            <li class="nav-item mt-2">
+                                <a class="nav-link text-black" href="personalinfo">Personal Info</a>
+                            </li>
+                            <li class="nav-item mt-2">
+                                <a class="nav-link text-black" href="academicinfo">Academic Info</a>
+                            </li>
+                        </Authorized>
+
+                    </AuthorizeView>
+                </ul>
+                <AuthorizeView>
+                    <Authorized>
+                        <a @onclick="logout" href="javascript:void(0)" class="btn btn-primary">Logout</a>
+                    </Authorized>
+                    <NotAuthorized>
+                        <form class="form-inline my-2 my-lg-0">
+
+                            <a href="login" class="btn  btn-primary">Login</a>
+                            <a href="register" class="btn  btn-primary">Register</a>
+                        </form>
+
+                    </NotAuthorized>
+                </AuthorizeView>
+            </div>
+        </div>
+    </nav>
+    <div>
+        @Body
+    </div>
+    
+
+    <section class="border-top">
+        <!--!--><!--!--><style>
+                            .nav-link {
+                                display: inline-block !important;
+                                padding: 0 5px 0 5px;
+                            }
+        </style>
+        <!--!--><div class="container pt-3">
+            <div class="row">
+                <div class="col-md-1 text-center">
+                    <img src="/images/pkversity_logo.png" height="25">
+                    <p class="text-secondary small">
+
+                        ©2023
+
+                    </p>
+                </div>
+                <div class="col-md-11 small text-secondary small text-center">
+                    <a href="#" class="nav-link">About Us</a>
+                    <a href="#" class="nav-link">Contact Us</a>
+                    <a href="#" class="nav-link">Privacy Policy</a>
+                    <a href="#" class="nav-link">FAQ</a>
+                    <a href="#" class="nav-link">Partners</a>
+
+                    <p class="small">Powered by: ASEYEM (Institute of Research and Development), Islamabad Pakistan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+@code {
+
+    private async Task logout()
+    {
+        var customAuthStateProvider = (CustomAuthenticationStateProvider)authStateProvider;
+        await customAuthStateProvider.UpdateAuthenticationState(null);
+        nm.NavigateTo("/", true);
+    }
+}
+

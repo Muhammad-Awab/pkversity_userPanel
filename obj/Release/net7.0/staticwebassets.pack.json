@@ -1,0 +1,153 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\PKVERSITY\\User\\obj\\Release\\net7.0\\scopedcss\\projectbundle\\User.bundle.scp.css",
+      "PackagePath": "staticwebassets\\User.bundle.scp.css"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\1.png",
+      "PackagePath": "staticwebassets\\Images\\1.png"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\Comsat.jpg",
+      "PackagePath": "staticwebassets\\Images\\Comsat.jpg"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\about.jpg",
+      "PackagePath": "staticwebassets\\Images\\about.jpg"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\about1.jpg",
+      "PackagePath": "staticwebassets\\Images\\about1.jpg"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\air.png",
+      "PackagePath": "staticwebassets\\Images\\air.png"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\asim.jpg",
+      "PackagePath": "staticwebassets\\Images\\asim.jpg"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\awab.jpeg",
+      "PackagePath": "staticwebassets\\Images\\awab.jpeg"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\fast.png",
+      "PackagePath": "staticwebassets\\Images\\fast.png"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\hero.jpg",
+      "PackagePath": "staticwebassets\\Images\\hero.jpg"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\img.png",
+      "PackagePath": "staticwebassets\\Images\\img.png"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\img1.png",
+      "PackagePath": "staticwebassets\\Images\\img1.png"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\islamic.jpeg",
+      "PackagePath": "staticwebassets\\Images\\islamic.jpeg"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\nust.png",
+      "PackagePath": "staticwebassets\\Images\\nust.png"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\pieas.jpeg",
+      "PackagePath": "staticwebassets\\Images\\pieas.jpeg"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\pkversity_logo.png",
+      "PackagePath": "staticwebassets\\Images\\pkversity_logo.png"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\pkversity_logo_new.png",
+      "PackagePath": "staticwebassets\\Images\\pkversity_logo_new.png"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\Images\\rehan.PNG",
+      "PackagePath": "staticwebassets\\Images\\rehan.PNG"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "E:\\PKVERSITY\\User\\wwwroot\\js\\hide_show_pass.js",
+      "PackagePath": "staticwebassets\\js\\hide_show_pass.js"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.User.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.build.User.props",
+      "PackagePath": "build\\User.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.User.props",
+      "PackagePath": "buildMultiTargeting\\User.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildTransitive.User.props",
+      "PackagePath": "buildTransitive\\User.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

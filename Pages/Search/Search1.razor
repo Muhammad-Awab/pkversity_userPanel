@@ -1,0 +1,145 @@
+﻿@inject IJSRuntime js
+@using User.Authentication
+
+
+<PageTitle>Pkversity</PageTitle>
+<Loader isLoading="@isLoading" />
+<section>
+    <div class="container-xxl bg-white p-0">
+        <h1 class="text-center mt-2 mb-2" style=" color: #106eea; font-weight:bold; ">Start your search for your dream university today </h1>
+        <div class="container-fluid bg-primary mb-5 wow fadeIn rounded-5" data-wow-delay="0.1s" style="padding: 25px;">
+            <div class="container">
+
+                <EditForm Model="@searhParameters" OnSubmit="@SearchUniversities">
+                    <div class="row g-2">
+                        <div class="col-md-10">
+                            <div class="row g-2">
+                                <div class="col-md-3">
+
+
+                                    <select @onchange="_DegOption" class="form-select border-0 py-3">
+                                        <option value="-1" selected>Select Program Degree</option>
+
+                                        @foreach (var emp in @PassingDegreeList)
+                                        {
+                                            <option value="@emp.PassingDegreesId">@emp.Title</option>
+                                        }
+                                    </select>
+
+
+                                </div>
+                                <div class="col-md-3">
+                                    <select @bind="searhParameters.PassingDegreeSubjectGroupId" class="form-select border-0 py-3">
+                                        <option value="-1" selected>Select Passing Groups</option>
+
+                                        @foreach (var emp in @PassingDSGroupsList)
+                                        {
+                                            if (alpha == emp.PassingDegreeId)
+                                            {
+                                                <option value="@emp.PassingDSGroupsId">@emp.PassingDSGroups</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select @bind="searhParameters.Percentage" class="form-select border-0 py-3">
+                                        <option value="-1" >Select Percentage</option>
+
+                                        <option value="50">less than 50 %</option>
+                                        <option value="50">50-60 %</option>
+                                        <option value="60">55-60 %</option>
+                                        <option value="60">60-70 %</option>
+                                        <option value="60">80-90 %</option>
+                                        <option value="60">above 90 %</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select @bind="searhParameters.CityID" id="floatingSelect" class="form-select border-0 py-3">
+
+                                        <option value="-1">Select City</option>
+
+                                        @foreach (var emp in @CitiesList)
+                                        {
+
+                                            <option value="@emp.CityId">@emp.CityName</option>
+
+                                        }
+                                    </select>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" style="background-color:#FFDE59;" class="btn  border-0 w-100 py-3">Search</button>
+                        </div>
+                    </div>
+                </EditForm>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+@code {
+    bool isLoading = false;
+    private List<EntPassingDegree>? PassingDegreeList;
+    private List<EntPassingDSGroups>? PassingDSGroupsList;
+    private List<EntCities>? CitiesList;
+    private void LoadProgramDetails()
+    {
+        this.PassingDegreeList = DALPassingDegree.GetPassingDegrees();
+        this.PassingDSGroupsList = DALPassingDSGroups.GetPassingDSGroups();
+        this.CitiesList = DalCities.GetCities();
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        LoadProgramDetails();
+        await base.OnInitializedAsync();
+    }
+
+    private EntSearhParameters searhParameters = new EntSearhParameters();
+
+    [Parameter] public EventCallback<EntSearhParameters> OnSearchUniversity { get; set; }
+
+    protected async Task SearchUniversities()
+    {
+        await OnSearchUniversity.InvokeAsync(searhParameters);
+    }
+
+
+
+
+
+
+    public string? alpha { get; set; }
+
+
+
+
+
+
+    private void _DegOption(ChangeEventArgs e)
+    {
+        alpha = e.Value as string;
+
+    }
+
+
+
+    private async Task Alert()
+    {
+        await js.InvokeVoidAsync("alert", "Please select all values");
+    }
+
+
+
+
+
+
+
+
+}

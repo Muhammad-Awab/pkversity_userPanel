@@ -1,0 +1,278 @@
+﻿@page "/personalinfo"
+@using ClassLibraryEntities
+@using ClassLibraryDAL
+@inject NavigationManager nm;
+@inject AuthenticationStateProvider authStateProvider
+@attribute [Authorize(Roles = "User")]
+
+
+<PageTitle>Personal Info | Pkversity</PageTitle>
+
+<style>
+    .form-outline {
+        margin-top: 1rem;
+    }
+
+    .form-signin {
+        max-width: 456px;
+    }
+</style>
+<div>
+    <EditForm Model="_ModelInfo" OnSubmit="SubmitForm">
+
+        <div class="container">
+            <div  style="margin-top:2rem">
+                <div class="shadow-sm pb-5 form-signin w-100 m-auto" style="background-color:white; border-radius:1rem; padding:2rem;">
+                    <h4 class="text-primary text-center mt-5">Personal Information</h4>
+
+                    <div class="form-outline">
+                        <label for="exampleFormControlInput1" class="form-label text-black">Name</label>
+                        <InputText @bind-Value="_ModelInfo.FirstName" class="form-control form-control-lg" placeholder="Enter Name" required />
+
+                    </div>
+
+
+                    <div class="form-outline">
+
+                        <label for="exampleFormControlInput1" class="form-label text-black">Father Name</label>
+                        <InputText @bind-Value="_ModelInfo.FatherName" class="form-control form-control-lg" placeholder="Enter Father Name" required />
+                    </div>
+
+
+
+                    <div class="form-outline">
+                        <label for="exampleFormControlInput1" class="form-label text-black">Gender</label>
+                        <select @onchange="_EditGender" class="form-select form-select-lg" required>
+                            <option selected>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+
+                        </select>
+                    </div>
+                    <div class="form-outline">
+                        <label for="exampleFormControlInput1" class="form-label text-black">Student CNIC</label>
+                        <InputText @bind-Value="_ModelInfo.CNIC" class="form-control form-control-lg" placeholder="Enter Cnic" required />
+                    </div>
+                    <div class="form-outline">
+
+                        <label for="exampleFormControlInput1" class="form-label text-black">Date of Birth</label>
+                        <InputText type="date" @bind-Value="_ModelInfo.DateOfBirth" class="form-control form-control-lg" required />
+                    </div>
+                    <div class="form-outline">
+
+                        <label for="exampleFormControlInput1" class="form-label text-black">City</label>
+                        <select @onchange="_EditCity" class="form-select form-select-lg" required>
+                            <option selected>Select City</option>
+                            <option value="Islamabad">Islamabad</option>
+                            <option value="Multan">Multan</option>
+                            <option value="Rawalpindi">Rawalpindi</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Peshawar">Peshawar</option>
+                            <option value="Quetta">Quetta</option>
+
+
+                        </select>
+
+                    </div>
+
+
+
+
+
+
+                    <div class="form-outline">
+
+                        <label for="exampleFormControlInput1" class="form-label text-black">Address</label>
+                        <InputText @bind-Value="_ModelInfo.Address" class="form-control form-control-lg" placeholder="Enter Address" required />
+
+                    </div>
+
+
+
+
+                    <div class="form-outline">
+                        <label for="exampleFormControlInput1" class="form-label text-black">Student Mobile Number</label>
+                        <InputText type="tel" @bind-Value="_ModelInfo.StudentMobileNo" class="form-control form-control-lg" placeholder="Enter Mobile Number" required />
+
+                    </div>
+
+
+
+
+                    <div class="form-outline">
+                        <label class="form-label text-black">Email</label>
+                        <InputText type="email" @bind-Value="_ModelInfo.Email" class="form-control form-control-lg" placeholder="Enter Email" required />
+
+                    </div>
+
+                    <div>
+                        <button type="submit" class="w-100 btn btn-lg btn-primary mt-2">Add</button>
+
+                    </div>
+                    <div>
+                        <button type="reset" class="w-100 btn btn-lg btn-secondary mt-2">Reset</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </EditForm>
+
+</div>
+
+
+<style>
+    .card {
+        border-left: 4px solid blue;
+    }
+
+    .text-primary {
+        font-weight: 600;
+    }
+</style>
+<div class="container mt-5">
+
+    <div class="row">
+
+        @foreach (var emp in @StudentInfoList)
+        {
+            <div class="col-md-12 mb-4">
+                <div class="card text-dark bg-light shadow-sm ">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-5">
+                            <div>
+                                <h3 class="fw-bold ">Student Info </h3>
+                            </div>
+                            <div>
+                                <button class="btn btn-warning " @onclick="(e => DeleteStudentInfo(emp.SID))">Delete</button>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card p-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Name</span><span class="text-primary">@emp.FirstName</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card p-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Father Name </span><span class="text-primary">@emp.FatherName</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card p-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>CNIC</span><span class="text-primary">@emp.CNIC</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 ">
+                                <div class="card p-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Phone Number</span><span class="text-primary">@emp.StudentMobileNo</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mt-4">
+                                <div class="card p-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Date Of Birth</span><span class="text-primary">@emp.DateOfBirth</span>
+                                    </div>
+                                </div>
+                            </div>                         
+                            <div class="col-md-3 mt-4">
+                                <div class="card p-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Gender</span><span class="text-primary">@emp.Gender</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mt-4">
+                                <div class="card p-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>City</span><span class="text-primary">@emp.City</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+
+
+@code {
+
+
+    private EntStudentInfo? _ModelInfo { get; set; } = new EntStudentInfo();
+    private List<EntStudentInfo> StudentInfoList;
+
+    public string? EditCity { get; set; }
+    public string? EditProvince { get; set; }
+    public string? EditGender { get; set; }
+
+    public string? value1 { get; set; }
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticatestate { get; set; }
+
+    private async Task DisplayGreeting()
+    {
+        var authState = await authenticatestate;
+        value1 = $"{authState.User.Identity.Name}";
+
+    }
+
+    protected override void OnInitialized()
+    {
+        DisplayGreeting();
+        LoadStudentInfo();
+
+    }
+
+    private void LoadStudentInfo()
+    {
+        this.StudentInfoList = DALStudentInfo.GetStudentInfobyID(value1);
+    }
+
+
+    private void SubmitForm()
+    {
+        _ModelInfo!.SID = value1;
+        _ModelInfo.Gender = EditGender;
+        _ModelInfo.City = EditCity;
+        DALStudentInfo.SaveStudentInfo(_ModelInfo);
+        LoadStudentInfo();
+      
+
+    }
+    private void _EditCity(ChangeEventArgs e)
+    {
+        EditCity = e.Value as string;
+    }
+    private void _EditProvince(ChangeEventArgs e)
+    {
+        EditProvince = e.Value as string;
+    }
+    private void _EditGender(ChangeEventArgs e)
+    {
+        EditGender = e.Value as string;
+    }
+
+    private void DeleteStudentInfo(string id)
+    {
+        DALStudentInfo.DeleteStudentInfobyID(id);
+        LoadStudentInfo();
+      
+
+    }
+}

@@ -1,0 +1,42 @@
+﻿@typeparam TElement
+@if (Elements == null)
+{
+    if (NullTemplate == null)
+    {
+        <text>Loading....</text>
+    }
+    else
+    {
+        @NullTemplate
+    }
+}
+else if (Elements.Count == 0)
+{
+    @if (EmptyTemplate == null)
+    {
+        <h1  class="text-center mb-3">There are no record in the database .</h1>
+    }
+    else
+    {
+        @EmptyTemplate
+    }
+
+}
+else
+{
+
+    @WithElementTemplate
+
+
+}
+
+
+@code {
+    [Parameter] public List<TElement>? Elements { get; set; }
+    [Parameter] public RenderFragment? NullTemplate { get; set; }
+    [Parameter] public RenderFragment? EmptyTemplate { get; set; }
+    [Parameter] public RenderFragment? WithElementTemplate { get; set; }
+
+
+
+}
