@@ -159,30 +159,6 @@
             "rid": "win"
           }
         }
-      },
-      "ClassLibraryDAL/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "ClassLibraryEntities": "1.0.0",
-          "System.Data.SqlClient": "4.8.5"
-        },
-        "compile": {
-          "bin/placeholder/ClassLibraryDAL.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ClassLibraryDAL.dll": {}
-        }
-      },
-      "ClassLibraryEntities/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "compile": {
-          "bin/placeholder/ClassLibraryEntities.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ClassLibraryEntities.dll": {}
-        }
       }
     }
   },
@@ -529,23 +505,12 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "ClassLibraryDAL/1.0.0": {
-      "type": "project",
-      "path": "../ClassLibraryDAL/ClassLibraryDAL.csproj",
-      "msbuildProject": "../ClassLibraryDAL/ClassLibraryDAL.csproj"
-    },
-    "ClassLibraryEntities/1.0.0": {
-      "type": "project",
-      "path": "../ClassLibraryEntities/ClassLibraryEntities.csproj",
-      "msbuildProject": "../ClassLibraryEntities/ClassLibraryEntities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "ClassLibraryDAL >= 1.0.0",
-      "ClassLibraryEntities >= 1.0.0",
-      "Newtonsoft.Json >= 13.0.3"
+      "Newtonsoft.Json >= 13.0.3",
+      "System.Data.SqlClient >= 4.8.5"
     ]
   },
   "packageFolders": {
@@ -574,14 +539,7 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {
-            "E:\\PKVERSITY\\ClassLibraryDAL\\ClassLibraryDAL.csproj": {
-              "projectPath": "E:\\PKVERSITY\\ClassLibraryDAL\\ClassLibraryDAL.csproj"
-            },
-            "E:\\PKVERSITY\\ClassLibraryEntities\\ClassLibraryEntities.csproj": {
-              "projectPath": "E:\\PKVERSITY\\ClassLibraryEntities\\ClassLibraryEntities.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -597,6 +555,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "System.Data.SqlClient": {
+            "target": "Package",
+            "version": "[4.8.5, )"
           }
         },
         "imports": [

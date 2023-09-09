@@ -13,10 +13,6 @@ E:\PKVERSITY\User\bin\Debug\net7.0\runtimes\win-x64\native\sni.dll
 E:\PKVERSITY\User\bin\Debug\net7.0\runtimes\win-x86\native\sni.dll
 E:\PKVERSITY\User\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 E:\PKVERSITY\User\bin\Debug\net7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-E:\PKVERSITY\User\bin\Debug\net7.0\ClassLibraryDAL.dll
-E:\PKVERSITY\User\bin\Debug\net7.0\ClassLibraryEntities.dll
-E:\PKVERSITY\User\bin\Debug\net7.0\ClassLibraryDAL.pdb
-E:\PKVERSITY\User\bin\Debug\net7.0\ClassLibraryEntities.pdb
 E:\PKVERSITY\User\obj\Debug\net7.0\User.csproj.AssemblyReference.cache
 E:\PKVERSITY\User\obj\Debug\net7.0\User.GeneratedMSBuildEditorConfig.editorconfig
 E:\PKVERSITY\User\obj\Debug\net7.0\User.AssemblyInfoInputs.cache
