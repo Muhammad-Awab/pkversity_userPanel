@@ -1,0 +1,1 @@
+web: blazor-server
